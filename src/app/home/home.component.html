@@ -1,0 +1,20 @@
+<h1>Students Details</h1>
+<br>
+
+<button (click)="loadData()">Load Student</button>
+
+<div *ngFor="let student of students;index as num">
+    <p>({{num+1}})</p>
+    <p>Student Name: {{student.name}}</p>
+    <p>Student Age: {{student.age}}</p>
+    <hr>
+</div>
+
+<br><br>
+<div style="border-radius: 10px;border: 1px solid; background-color: antiquewhite;padding: 10px;">
+    <span>Student Name: </span><input #name type="text">
+    <br> <br>
+    <span>Student Age: </span><input #age type="number">
+    <br> <br>
+    <button (click)="addData(name.value,age.value)">Add Student</button>
+</div>
