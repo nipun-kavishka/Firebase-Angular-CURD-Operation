@@ -37,7 +37,7 @@ export class DataServiceService {
     this.studentRef.set(key, student);
   }
 
-  updateCustomer(key: string, value: any): Promise<void> {
+  updateStudent(key: string, value: any): Promise<void> {
     return this.studentRef.update(key, value);
   }
 
@@ -45,11 +45,11 @@ export class DataServiceService {
    * Delete an entry of the given key from the defined root
    * @param key sholud be provide by the user
    */
-  deleteCustomer(key: string): Promise<void> {
+  deleteStudent(key: string): Promise<void> {
     return this.studentRef.remove(key);
   }
 
-  getCustomersList(): AngularFireList<Student> {
+  getStudentList(): AngularFireList<Student> {
     return this.studentRef;
   }
 
@@ -71,7 +71,7 @@ export class DataServiceService {
       //create empty array of students
       var students: Array<Student> = new Array();
 
-      this.getCustomersList().snapshotChanges().pipe(
+      this.getStudentList().snapshotChanges().pipe(
         map(changes =>
           changes.map(c =>
             ({ key: c.payload.key, ...c.payload.val() })
